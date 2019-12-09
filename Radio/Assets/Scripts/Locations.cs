@@ -1,14 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Location
+﻿public class Location
 {
+    Location(string name)
+    {
+        this.name = name;
+    }
     string name;
-    float authoritiesIntrest;
+    float authoritiesIntrest = 0;
+    bool playerIsHere = false;
 
-    void updateIntrest(float authoritiesIntrest)
+    public void UpdateIntrest(float authoritiesIntrest)
     {
         this.authoritiesIntrest = authoritiesIntrest;
     }
+
+    public float GetAuthorititesIntrest()
+    {
+        return authoritiesIntrest;
+    }
+
+    public bool IsPlayerHere() { return playerIsHere; }
 }

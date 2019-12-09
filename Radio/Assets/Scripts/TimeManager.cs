@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour
+public partial class TimeManager : MonoBehaviour
 {
-    enum gameState
+    enum GameState
     {
         Planning,
         Simulation
     }
-    gameState currentGameState = gameState.Planning;
-    
+    GameState currentGameState;
+
     private int activeListeners = 0;
     private int followers = 0;
     private float governmentIntrest = 0;
@@ -18,51 +17,16 @@ public class TimeManager : MonoBehaviour
 
     private Dictionary<Collections.TransmissionType, float> transmissionPlan;
 
-    public float tickRate = 2f;
-    public float dayLength;
-    float nextUpdate;
+    private List<Location> locations;
 
-    void StartSimulation()
+    private void Start()
     {
-        ReadTransmissionPlan();
-        ReadMapInput();
-        currentGameState = gameState.Simulation;
+        currentGameState = GameState.Planning;
+        locations = GatherLocations();
     }
 
-    void ReadTransmissionPlan()
+    List<Location> GatherLocations()
     {
-    }
-
-    void ReadMapInput()
-    {
-
-    }
-
-    void Update()
-    {
-        if (currentGameState == gameState.Simulation)
-        {
-            if (Time.time > nextUpdate)
-            {
-                nextUpdate = Time.time + tickRate;
-                Tick();
-            }
-        }
-    }
-
-    void Tick()
-    {
-        //Update governemntIntrest
-        UpdateMap();
-    }
-
-    void EndDay()
-    {
-        currentGameState = gameState.Planning;
-    }
-
-    void UpdateMap()
-    {
-        //TODO kzlakowski 
+        throw new System.NotImplementedException();
     }
 }
