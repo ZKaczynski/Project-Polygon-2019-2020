@@ -19,4 +19,8 @@
     }
 
     public bool IsPlayerHere() { return playerIsHere; }
+
+    public void AddPlayer() => playerIsHere = true;
+
+    public void RemovePlayer() => playerIsHere = false;
 }
